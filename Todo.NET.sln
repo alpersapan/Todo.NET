@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoWebAPI", "TodoWebAPI\TodoWebAPI.csproj", "{0CD6C420-3689-4D68-9EE7-ACD5F6EB565E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoWebApp", "TodoWebApp\TodoWebApp.csproj", "{AB51AB1F-101E-40BC-8438-592508AC8512}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F491731-1DF4-4416-BA5E-74BBDA691258}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		Todo_NET.sql = Todo_NET.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CD6C420-3689-4D68-9EE7-ACD5F6EB565E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CD6C420-3689-4D68-9EE7-ACD5F6EB565E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CD6C420-3689-4D68-9EE7-ACD5F6EB565E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CD6C420-3689-4D68-9EE7-ACD5F6EB565E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB51AB1F-101E-40BC-8438-592508AC8512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB51AB1F-101E-40BC-8438-592508AC8512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB51AB1F-101E-40BC-8438-592508AC8512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB51AB1F-101E-40BC-8438-592508AC8512}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6CC0118E-D6C5-4E93-AEE6-5E9D72977E55}
+	EndGlobalSection
+EndGlobal

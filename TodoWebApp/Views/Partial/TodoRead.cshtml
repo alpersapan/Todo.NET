@@ -1,0 +1,137 @@
+﻿@model TodoWebApp.Models.ViewTodo
+
+@{
+    ViewData["Title"] = "Todo Details";
+    var users = ViewData["Users"] as List<TodoWebApp.Models.User>;
+    var categories = ViewData["Categories"] as List<TodoWebApp.Models.Category>;
+    Console.WriteLine();
+}
+
+<form id="todoForm">
+    <!-- Modal Header -->
+    <div class="modal-header">
+        @if (Model.Id == 0)
+        {
+            <h3 class="modal-title">Todo Create</h3>
+        }
+        else
+        {
+            <h3 class="modal-title">#@Model.Id Todo Edit</h3>
+        }
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+
+
+    <!-- Modal body -->
+    <div class="modal-body">
+        <input type="text" class="form-control" id="todoId" name="todoId" value="@Model.Id" hidden />
+
+        <div class="row">
+            <div class="col-3">
+                <label for="categoryname">Category:</label>
+            </div>
+            <div class="col-9">
+                <select name="categories" id="categories" class="form-select">
+                    @if (categories != null)
+                    {
+                        foreach (var category in categories)
+                        {
+                            if (Model.CategoryId == category.Id)
+                            {
+                                <option value="@category.Id" selected>@category.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@category.Id">@category.Name</option>
+                            }
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-3">
+                <label for="users">Users:</label>
+            </div>
+            <div class="col-9">
+                <select name="users" id="users" class="form-select">
+                    @if (users != null)
+                    {
+                        foreach (var user in users)
+                        {
+                            if (Model.UserId == user.Id)
+                            {
+                                <option value="@user.Id" selected>@user.FullName</option>
+                            }
+                            else
+                            {
+                                <option value="@user.Id">@user.FullName</option>
+                            }
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-3"><label for="todotitle">Title:</label></div>
+            <div class="col-9"><input type="text" class="form-control" id="todotitle" name="todotitle" value="@Model.Title"></div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-3">
+                <label for="description">Description:</label>
+            </div>
+            <div class="col-9">
+                <textarea class="form-control" rows="5" id="tododescription" name="tododescription">@Model.Description</textarea>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-3">
+                <label for="tododeadline">Deadline:</label>
+            </div>
+            <div class="col-9">
+                <input type="datetime-local" class="form-control" id="tododeadline" name="tododeadline" value="@Convert.ToDateTime(Model.Deadline).ToString("yyyy-MM-ddTHH:mm:ss")">
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-3">
+                <label for="todostatus">Status:</label>
+            </div>
+            <div class="col-9">
+                @if (@Model.Status == true)
+                {
+                    <input class="form-check-input" type="checkbox" id="todostatus" name="todostatus" checked>
+                }
+                else
+                {
+                    <input class="form-check-input" type="checkbox" id="todostatus" name="todostatus">
+                }
+            </div>
+        </div>
+        <br>
+    </div>
+
+
+    <!-- Modal footer -->
+    <div class="modal-footer">
+        @if (Model.Id == 0)
+        {
+            <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTodoDetails" data-mode="TodoCreate" data-data1="@Model.Id">Add</a>
+        }
+        else
+        {
+            <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTodoDetails" data-mode="TodoUpdate" data-data1="@Model.Id">Save</a>
+        }
+
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+    </div>
+</form>

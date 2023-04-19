@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TodoWebApp.Models.ViewTodo>
+
+@{
+    ViewData["Title"] = "Todo List";
+}
+
+<div class="pt-3 d-grid gap-2 d-md-flex justify-content-md-end">
+    <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTodoDetails" data-mode="TodoAdd">Add</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">User</th>
+            <th scope="col">Deadline</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var todo in Model)
+        {
+            <tr id="trTodo_@todo.Id">
+                <th scope="row">@todo.Id</th>
+                <td>@todo.CategoryName</td>
+                <td>@todo.Title</td>
+                <td>@todo.Description</td>
+                <td>@todo.FullName</td>
+                <td>@todo.Deadline</td>
+                <td>
+                    <a class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalTodoDetails" data-mode="TodoRead" data-data1="@todo.Id">Details</a>
+                    <a class="btn btn-danger" data-mode="TodoDelete" data-data1="@todo.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="modalTodoDetails">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-dark">
+        </div>
+    </div>
+</div>
+
